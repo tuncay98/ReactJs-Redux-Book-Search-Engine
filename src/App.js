@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import Searchbox from './components/serachBar'
+import Titles from './components/titles'
 import './App.css';
+
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
+const main = {
+  minHeight: '100vh',
+  backgroundImage: 'url("library.jpg")',
+  backgroundPosition: "center",
+  backgroundSize: '100% 100%',
+  backgroundAttachment: "fixed"
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={main}>
+      <Provider store={store}>
+        <Searchbox></Searchbox>
+        <Titles></Titles>
+      </Provider>
     </div>
   );
 }
